@@ -1,0 +1,19 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
