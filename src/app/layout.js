@@ -1,5 +1,7 @@
-import { Manrope } from 'next/font/google'
 import '../styles/globals.css'
+import { Manrope } from 'next/font/google'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 export const metadata = {
   title: 'AudioExpressPro',
@@ -13,7 +15,11 @@ const manrope = Manrope({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>{children}</body>
+      <body className={`${manrope.className} font-bold`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
