@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import CompanyLogo from './CompanyLogo'
+import NavList from './NavList'
 
 export default function Footer() {
   return (
@@ -7,15 +8,10 @@ export default function Footer() {
       <div className="container mx-auto py-10">
         <div className="flex justify-between">
           <CompanyLogo />
-          <ul className="uppercase flex gap-5">
-            <li>home</li>
-            <li>headphones</li>
-            <li>speakers</li>
-            <li>earphones</li>
-          </ul>
+          <NavList />
         </div>
         <div className="font-normal leading-6 my-10 w-1/2">
-          AudioExpress is an all in one stop to fulfill your audio needs. We're a
+          AudioExpress is an all in one stop to fulfill your audio needs. We&apos;re a
           small team of music lovers and sound specialists who are devoted to
           helping you get the most out of personal audio. Come and visit our demo
           facility - we’re open 7 days a week.
