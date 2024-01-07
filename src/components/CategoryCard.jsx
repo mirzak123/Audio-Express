@@ -3,9 +3,12 @@ import Link from 'next/link'
 
 export default function CategoryCard(props) {
   return (
-    <div className="relative bg-lightGray rounded flex flex-col items-center pt-32 px-24 hover:scale-110 duration-300">
+    <Link
+      className="relative bg-lightGray rounded flex flex-col items-center pt-32 px-24 hover:scale-110 duration-300"
+      href={props.href}
+    >
       <Image
-        className="absolute bottom-2"
+        className="absolute bottom-6"
         src={props.image}
         alt="category image"
         width={300}
@@ -16,9 +19,8 @@ export default function CategoryCard(props) {
       <div className="uppercase">
         {props.category}
       </div>
-      <Link
-        className="uppercase"
-        href={props.href}
+      <div
+        className="uppercase font-bold letter-spacing-2 text-sm text-center mb-4"
       >
         shop
         <span>
@@ -30,7 +32,7 @@ export default function CategoryCard(props) {
             height={24}
           />
         </span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
