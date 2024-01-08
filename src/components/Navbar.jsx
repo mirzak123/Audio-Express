@@ -5,11 +5,14 @@ import ShoppingCart from './ShoppingCart'
 export default function Navbar () {
   return (
     <nav
-      className="bg-richBlack text-white flex justify-around py-6 z-10"
+      id="navbar"
+      className="bg-richBlack"
     >
-      <CompanyLogo />
-      <NavList />
-      <ShoppingCart />
+      <div className="container text-white flex justify-around py-6 mx-auto z-10">
+        <CompanyLogo />
+        <NavList />
+        <ShoppingCart />
+      </div>
     </nav>
   )
 }

@@ -11,11 +11,11 @@ export default function Hero(props) {
         objectFit="cover"
         objectPosition="center"
       />
-      <div className="container absolute top-0 bottom-0 flex justify-start items-center max-w-lg">
+      <div className="container absolute top-0 bottom-0 md:ml-44 flex justify-start items-center max-w-lg">
         <div className="bg-transparent z-10">
           <div className="uppercase tracking-{10px} font-normal">{props.overline}</div>
           <h1 className="text-5xl font-bold">{props.name}</h1>
-          <p className="text-2xl">{props.description}</p>
+          <p className="text-2xl font-normal">{props.description}</p>
         </div>
       </div>
     </section>

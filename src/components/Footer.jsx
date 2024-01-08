@@ -4,7 +4,10 @@ import NavList from './NavList'
 
 export default function Footer() {
   return (
-    <footer className="bg-richBlack text-white">
+    <footer
+      id="footer"
+      className="bg-richBlack text-white"
+    >
       <div className="container mx-auto py-10">
         <div className="flex justify-between">
           <CompanyLogo />

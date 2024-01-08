@@ -15,6 +15,7 @@ export default function Speakers() {
           It’s a bookshelf speaker system that offers truly wireless connectivity -- creating
           new possibilities for more pleasing and practical audio setups."
           orientation="left"
+          id="zx9"
         />
         <ProductSection
           title="ZX7 SPEAKER"
@@ -23,6 +24,7 @@ export default function Speakers() {
           The ZX7 bookshelf speaker uses high-end audiophile components that
           represents the top of the line powered speakers for home or studio use."
           orientation="right"
+          id="zx7"
         />
         <CategoriesList />
       </div>

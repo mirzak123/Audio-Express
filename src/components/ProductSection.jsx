@@ -8,6 +8,7 @@ export default function ProductSection(props) {
     <section className={`flex flex-col md:flex-row md:gap-16 items-center ${isRightOrientation ? 'md:flex-row-reverse' : ''}`}>
       <div className="md:flex-1">
         <Image
+          className="rounded"
           src={props.image}
           alt={props.title}
           width={600}
@@ -23,7 +24,7 @@ export default function ProductSection(props) {
           {props.title}
         </h2>
         <p className="font-normal">{props.description}</p>
-        <SeeProductButton href="#" />
+        <SeeProductButton href={`/products/${props.id}`} />
       </div>
     </section>
   )

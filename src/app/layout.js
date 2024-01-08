@@ -15,7 +15,7 @@ const manrope = Manrope({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} font-bold`}>
+      <body className={`${manrope.className} font-bold scroll-smooth`}>
         <Navbar />
         {children}
         <Footer />

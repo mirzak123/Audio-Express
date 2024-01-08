@@ -20,7 +20,7 @@ export default function CategoryCard(props) {
         {props.category}
       </div>
       <div
-        className="uppercase font-bold letter-spacing-2 text-sm text-center mb-4"
+        className="uppercase font-normal letter-spacing-2 text-sm text-center mb-4"
       >
         shop
         <span>

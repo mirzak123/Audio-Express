@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="scroll-smooth">
       <Hero
         name="Sound Master M50"
         description="Experience natural, lifelike audio and exceptional
