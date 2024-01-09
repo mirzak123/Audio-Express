@@ -2,7 +2,7 @@ import CategoriesList from "@/components/CategoriesList";
 import PageHeader from "@/components/PageHeader";
 import ProductSection from "@/components/ProductSection";
 
-export default function Headphones() {
+export default async function Headphones() {
   return (
     <div>
       <PageHeader title="Headphones" />
