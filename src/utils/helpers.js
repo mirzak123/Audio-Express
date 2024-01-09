@@ -8,7 +8,6 @@ export function getProductSections(products) {
     } else {
       orientation = "right";
     }
-    console.log(product.productid)
 
     return (
       <ProductSection

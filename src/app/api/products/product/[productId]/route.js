@@ -7,5 +7,5 @@ export async function GET(request, context) {
 
   const { rows } = await sql`SELECT * FROM products WHERE productId = ${productId}`
 
-  return NextResponse.json(rows)
+  return NextResponse.json(rows[0])
 }
