@@ -24,7 +24,7 @@ export default function ProductSection(props) {
           {props.title}
         </h2>
         <p className="font-normal">{props.description}</p>
-        <SeeProductButton href={`/products/${props.id}`} />
+        <SeeProductButton id={props.id} />
       </div>
     </section>
   )

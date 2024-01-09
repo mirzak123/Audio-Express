@@ -1,21 +1,31 @@
+'use client'
+
 import PageHeader from '@/components/PageHeader';
-import ProductSection from '@/components/ProductSection';
+import CategoriesList from '@/components/CategoriesList';
+
+import { useEffect, useState } from 'react';
+import { fetchProductsByCategory } from '@/utils/api';
+import { getProductSections } from '@/utils/helpers';
 
 export default function Earphones() {
+  const [products, setProducts] = useState([]);
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const productsData = await fetchProductsByCategory('earphones');
+      setProducts(productsData);
+    }
+
+    fetchProducts();
+  }, [])
+
+  const productsList = getProductSections(products);
   return (
     <div>
       <PageHeader title="Earphones" />
       <div className="container mx-auto flex flex-col gap-28 my-28">
-        <ProductSection
-          overline="new product"
-          title="YX1 WIRELESS EARPHONES"
-          image="/assets/product-yx1-earphones/desktop/image-product.jpg"
-          description="Tailor your listening experience with bespoke dynamic drivers
-            from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity
-            sound even in noisy environments with its active noise cancellation feature."
-          orientation="left"
-          id="yx1"
-        />
+        {productsList}
+        <CategoriesList />
       </div>
     </div>
   );

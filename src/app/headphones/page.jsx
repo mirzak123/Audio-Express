@@ -1,40 +1,31 @@
+'use client'
+
 import CategoriesList from "@/components/CategoriesList";
 import PageHeader from "@/components/PageHeader";
-import ProductSection from "@/components/ProductSection";
 
-export default async function Headphones() {
+import { useEffect, useState } from "react";
+import { fetchProductsByCategory } from "@/utils/api.js"
+import { getProductSections } from "@/utils/helpers.js"
+
+export default function Headphones() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const productsData = await fetchProductsByCategory("headphones");
+      setProducts(productsData);
+    }
+
+    fetchProducts();
+  }, [])
+
+  const productsList = getProductSections(products);
+
   return (
     <div>
       <PageHeader title="Headphones" />
       <div className="container mx-auto flex flex-col gap-28 my-28">
-        <ProductSection
-          overline="new product"
-          title="XX99 MARK II HEADPHONES"
-          image="/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg"
-          description="The new XX99 Mark II headphones is the pinnacle of pristine audio.
-            It redefines your premium headphone experience by reproducing the balanced depth
-            and precision of studio-quality sound."
-          orientation="left"
-          id="xx99-mark-two"
-        />
-        <ProductSection
-          title="XX99 MARK I HEADPHONES"
-          image="/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg"
-          description="As the gold standard for headphones, the classic XX99 Mark I
-            offers detailed and accurate audio reproduction for audiophiles, mixing
-            engineers, and music aficionados alike in studios and on the go."
-          orientation="right"
-          id="xx99-mark-one"
-        />
-        <ProductSection
-          title="XX59 HEADPHONES"
-          image="/assets/product-xx59-headphones/desktop/image-product.jpg"
-          description="Enjoy your audio almost anywhere and customize it to your specific
-            tastes with the XX59 headphones. The stylish yet durable versatile wireless
-            headset is a brilliant companion at home or on the move."
-          orientation="left"
-          id="xx59"
-        />
+        {productsList}
         <CategoriesList />
       </div>
     </div>
