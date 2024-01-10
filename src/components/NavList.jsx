@@ -4,16 +4,16 @@ export default function NavList() {
   return (
     <ul className="flex gap-10 uppercase">
       <li>
-        <Link href="/">home</Link>
+        <Link className="hover:text-peach transition duration-200" href="/">home</Link>
       </li>
       <li>
-        <Link href="/headphones">headphones</Link>
+        <Link className="hover:text-peach transition duration-200" href="/headphones">headphones</Link>
       </li>
       <li>
-        <Link href="/speakers">speakers</Link>
+        <Link className="hover:text-peach transition duration-200" href="/speakers">speakers</Link>
       </li>
       <li>
-        <Link href="/earphones">earphones</Link>
+        <Link className="hover:text-peach transition duration-200" href="/earphones">earphones</Link>
       </li>
     </ul>
   )

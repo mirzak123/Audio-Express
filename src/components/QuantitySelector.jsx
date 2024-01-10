@@ -14,9 +14,9 @@ export default function QuantitySelector(props) {
 
   return (
     <div className="bg-lightGray flex items-center justify-around font-normal w-32 h-10">
-      <div className="cursor-pointer select-none" onClick={decrementQuantity}>-</div>
+      <div className="cursor-pointer select-none hover:text-peach" onClick={decrementQuantity}>-</div>
       <div className="font-bold">{props.quantity}</div>
-      <div className="cursor-pointer select-none" onClick={incrementQuantity}>+</div>
+      <div className="cursor-pointer select-none hover:text-peach" onClick={incrementQuantity}>+</div>
     </div>
   )
 }

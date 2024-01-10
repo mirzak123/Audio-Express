@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div className="flex justify-between">
-          <div>Copyright 2021. All Rights Reserved</div>
+          <div>Copyright 2024. All Rights Reserved</div>
           <div>
             <ul className="flex gap-4">
               <li>
