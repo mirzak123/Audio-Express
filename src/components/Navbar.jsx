@@ -1,6 +1,6 @@
 import CompanyLogo from './CompanyLogo'
 import NavList from './NavList'
-import ShoppingCart from './ShoppingCart'
+import ShoppingCartButton from './ShoppingCartButton'
 
 export default function Navbar () {
   return (
@@ -11,7 +11,7 @@ export default function Navbar () {
       <div className="container text-white flex justify-around py-6 mx-auto z-10">
         <CompanyLogo />
         <NavList />
-        <ShoppingCart />
+        <ShoppingCartButton />
       </div>
     </nav>
   )

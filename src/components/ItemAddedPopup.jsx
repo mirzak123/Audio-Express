@@ -3,14 +3,16 @@ import { motion } from 'framer-motion'
 
 export default function ItemAddedPopup(props) {
   return (
-    <motion.div
-      key="item-added-popup"
-      initial={{ y: 200 }}
-      animate={{ y: 0 }}
-      exit={{ y: 200 }}
+    <div
       className="fixed inset-0 flex items-end justify-center"
     >
-      <div className="relative flex justify-around items-center gap-32 bg-white w-5/12 h-32 p-4 rounded shadow-lg mb-8">
+      <motion.div
+        key="item-added-popup"
+        initial={{ y: 200 }}
+        animate={{ y: 0 }}
+        exit={{ y: 200 }}
+        className="flex justify-around items-center gap-32 bg-white w-5/12 h-32 p-4 rounded shadow-lg mb-8 border border-peach"
+      >
         <Image 
           className="object-cover w-20 h-20"
           src="/assets/checkout/icon-order-confirmation.svg"
@@ -25,7 +27,7 @@ export default function ItemAddedPopup(props) {
         >
           &times;
         </button>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }

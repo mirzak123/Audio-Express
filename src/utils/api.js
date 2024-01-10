@@ -39,7 +39,7 @@ async function fetchProductById(id) {
 
 async function addToCart(productId, quantity) {
   try {
-    const response = await fetch(`${API_BASE_URL}/cart/add`, {
+    const response = await fetch(`${API_BASE_URL}/cart`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

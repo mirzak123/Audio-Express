@@ -1,4 +1,5 @@
 import ProductSection from "@/components/ProductSection";
+import CartItem from "@/components/CartItem";
 
 export function getProductSections(products) {
   let orientation = "right";
@@ -23,4 +24,20 @@ export function getProductSections(products) {
   })
 
   return productsList;
+}
+
+export function getCartItems(cart) {
+  const cartItems = cart.map((item) => {
+    return (
+      <CartItem
+        key={item.productid}
+        name={item.name}
+        price={item.price}
+        image={`/assets/${item.imageurl}/desktop/image-product.jpg`}
+        quantity={item.quantity}
+      />
+    )
+  })
+
+  return cartItems;
 }
