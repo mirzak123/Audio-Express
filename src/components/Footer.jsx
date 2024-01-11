@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import CompanyLogo from './CompanyLogo'
 import NavList from './NavList'
@@ -25,28 +26,43 @@ export default function Footer() {
           <div>
             <ul className="flex gap-4">
               <li>
-                <Image
-                  src="/assets/shared/desktop/icon-facebook.svg"
-                  alt="facebook icon"
-                  width={24}
-                  height={24}
-                />
+                <Link
+                  className="cursor-pointer"
+                  href="https://bs-ba.facebook.com/people/Nejra-Mujezinovic/pfbid025venJzAmA9Q6CPY6YbzF1ydihV1hwLrNrVNnkvcJkBGDBFmuM4VzxPT65jbEzyxgl/"
+                >
+                  <Image
+                    src="/assets/shared/desktop/icon-facebook.svg"
+                    alt="facebook icon"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
               </li>
               <li>
-                <Image
-                  src="/assets/shared/desktop/icon-twitter.svg"
-                  alt="twitter icon"
-                  width={24}
-                  height={24}
-                />
+                <Link
+                  className="cursor-pointer"
+                  href="https://twitter.com/"
+                >
+                  <Image
+                    src="/assets/shared/desktop/icon-twitter.svg"
+                    alt="twitter icon"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
               </li>
               <li>
-                <Image
-                  src="/assets/shared/desktop/icon-instagram.svg"
-                  alt="instagram icon"
-                  width={24}
-                  height={24}
-                />
+                <Link
+                  className="cursor-pointer"
+                  href="https://www.instagram.com/neejjraa"
+                >
+                  <Image
+                    src="/assets/shared/desktop/icon-instagram.svg"
+                    alt="instagram icon"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
               </li>
             </ul>
           </div>

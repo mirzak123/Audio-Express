@@ -37,6 +37,19 @@ async function fetchProductById(id) {
   }
 }
 
+export async function deleteFromCart(productId) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/cart/${productId}`, {
+      method: 'DELETE',
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('Error deleting from cart:', error);
+    throw new Error('Error deleting from cart');
+  }
+}
+
 async function addToCart(productId, quantity) {
   try {
     const response = await fetch(`${API_BASE_URL}/cart`, {

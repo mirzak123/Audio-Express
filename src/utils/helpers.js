@@ -26,15 +26,17 @@ export function getProductSections(products) {
   return productsList;
 }
 
-export function getCartItems(cart) {
+export function getCartItems(cart, deleteProduct) {
   const cartItems = cart.map((item) => {
     return (
       <CartItem
         key={item.productid}
+        id={item.productid}
         name={item.name}
         price={item.price}
         image={`/assets/${item.imageurl}/desktop/image-product.jpg`}
         quantity={item.quantity}
+        deleteProduct={deleteProduct}
       />
     )
   })
