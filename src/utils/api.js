@@ -78,4 +78,21 @@ async function fetchCart() {
   }
 }
 
-export { fetchProductsByCategory, fetchProductById, addToCart, fetchCart };
+async function addNewOrder(userId, totalAmount, products) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, totalAmount, products }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('Error adding new order:', error);
+    throw new Error('Error adding new order');
+  }
+}
+
+export { fetchProductsByCategory, fetchProductById, addToCart, fetchCart, addNewOrder };

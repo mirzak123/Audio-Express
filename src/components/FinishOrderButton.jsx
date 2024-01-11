@@ -6,7 +6,7 @@ export default function FinishOrderButton(props) {
       <button
         className="bg-darkOrange each text-white font-semibold py-4 px-12
         uppercase w-full mt-10 hover:bg-peach transition duration-200"
-        onClick={props.showModal}
+        onClick={props.finalizeOrder}
       >
         Finish Order
       </button>

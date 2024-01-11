@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { getCartItems } from '@/utils/helpers'
-import { deleteFromCart } from '@/utils/api'
+import { deleteFromCart, addNewOrder } from '@/utils/api'
 import { AnimatePresence } from 'framer-motion'
 import FinishOrderButton from '@/components/FinishOrderButton'
 import FinishOrderModal from '@/components/FinishOrderModal'
@@ -11,7 +11,8 @@ export default function CartPage () {
   const [cart, setCart] = useState([])
   const [showFinishOrderModal, setShowFinishOrderModal] = useState(false)
   const shippingPrice = 50
-  const totalPrice = Number(cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2))
+  const itemsPrice = Number(cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2))
+  const totalPrice = itemsPrice + shippingPrice
 
   useEffect(() => {
     const getCartItems = async () => {
@@ -38,6 +39,14 @@ export default function CartPage () {
     setShowFinishOrderModal(false)
   }
 
+  async function finalizeOrder() {
+    showModal()
+    await addNewOrder(1, totalPrice, cart)
+    for (const product of cart) {
+      await deleteProduct(product.productid)
+    }
+  }
+
   return (
     <div className="bg-lightGray md:py-28">
       <div className="container max-w-2xl mx-auto bg-white rounded md:py-6 px-8 shadow shadow-lightGray">
@@ -49,22 +58,22 @@ export default function CartPage () {
         </div>
         { cart.length > 0 ?
           <>
-            <FinishOrderButton showModal={showModal} />
+            <FinishOrderButton finalizeOrder={finalizeOrder} />
             <div className="flex justify-between mt-8">
-              <div className="text-2xl font-normal opacity-50 uppercase">Total</div>
-              <div className="text-2xl font-bold">$ {totalPrice}</div>
+              <div className="text-xl font-normal opacity-50 uppercase">Total</div>
+              <div className="text-xl font-bold">$ {itemsPrice}</div>
             </div>
             <div className="flex justify-between mt-8">
-              <div className="text-2xl font-normal opacity-50 uppercase">Shipping</div>
-              <div className="text-2xl font-bold">$ {shippingPrice}</div>
+              <div className="text-xl font-normal opacity-50 uppercase">Shipping</div>
+              <div className="text-xl font-bold">$ {shippingPrice}</div>
             </div>
             <div className="flex justify-between mt-8">
-              <div className="text-2xl font-normal opacity-50">Total</div>
-              <div className="text-2xl font-bold">$ {totalPrice + shippingPrice}</div>
+              <div className="text-xl font-normal opacity-50">Total</div>
+              <div className="text-xl font-bold">$ {totalPrice}</div>
             </div>
           </>
           :
-          <div className="text-center">
+          <div className="text-center uppercase">
             Your cart is empty
           </div>
         }
