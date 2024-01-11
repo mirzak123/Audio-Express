@@ -10,6 +10,8 @@ import FinishOrderModal from '@/components/FinishOrderModal'
 export default function CartPage () {
   const [cart, setCart] = useState([])
   const [showFinishOrderModal, setShowFinishOrderModal] = useState(false)
+  const shippingPrice = 50
+  const totalPrice = Number(cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2))
 
   useEffect(() => {
     const getCartItems = async () => {
@@ -42,18 +44,31 @@ export default function CartPage () {
         <div className="uppercase tracking-wide text-2xl mb-8">Summary</div>
         <div className="flex flex-col gap-6">
           <AnimatePresence>
-          {getCartItems(cart, deleteProduct)}
+            {getCartItems(cart, deleteProduct)}
           </AnimatePresence>
         </div>
         { cart.length > 0 ?
           <>
             <FinishOrderButton showModal={showModal} />
+            <div className="flex justify-between mt-8">
+              <div className="text-2xl font-normal opacity-50 uppercase">Total</div>
+              <div className="text-2xl font-bold">$ {totalPrice}</div>
+            </div>
+            <div className="flex justify-between mt-8">
+              <div className="text-2xl font-normal opacity-50 uppercase">Shipping</div>
+              <div className="text-2xl font-bold">$ {shippingPrice}</div>
+            </div>
+            <div className="flex justify-between mt-8">
+              <div className="text-2xl font-normal opacity-50">Total</div>
+              <div className="text-2xl font-bold">$ {totalPrice + shippingPrice}</div>
+            </div>
           </>
           :
           <div className="text-center">
             Your cart is empty
           </div>
         }
+
         <AnimatePresence>
         { showFinishOrderModal &&
           <FinishOrderModal closeModal={closeModal} />
